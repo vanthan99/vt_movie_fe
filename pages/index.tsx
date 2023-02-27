@@ -1,11 +1,9 @@
+import HomeLayout from '@/layouts/HomeLayout'
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import styled from 'styled-components'
-import { DatePicker } from 'antd'
+import { ReactElement } from 'react'
+import type { NextPageWithLayout } from './_app'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const Home: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -14,15 +12,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Title>
-          <DatePicker />
-        </Title>
-      </main>
     </>
   )
 }
 
-const Title = styled.div`
-  color: black;
-`
+Home.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <HomeLayout>
+      {page}
+    </HomeLayout>
+  )
+}
+
+export default Home;

@@ -5,6 +5,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ['demo.amytheme.com'],
+  }
 }
 
 module.exports = nextConfig

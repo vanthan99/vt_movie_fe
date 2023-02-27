@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "layouts/AdminLayout.js", "layouts/AuthLayout.js"],
   "exclude": ["node_modules"]
 }
