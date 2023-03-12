@@ -23,5 +23,5 @@ Home.getLayout = function getLayout(page: ReactElement) {
     </HomeLayout>
   )
 }
-
+ 
 export default Home;
