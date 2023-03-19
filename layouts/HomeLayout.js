@@ -1,11 +1,17 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styled from "styled-components";
-
+import {pageStyles} from '@/styles/styles.config'
+import PageStatus from "@/components/PageStatus";
+import Menu from "@/components/Menu";
+import Breadcrumb from "@/components/Breadcrumb";
 const HomeLayout = ({ children }) => {
     return (
         <StyledHomeLayout>
+            <PageStatus />
             <Header />
+            <Menu />
+            <Breadcrumb />
             <Main>{children}</Main>
             <Footer />
         </StyledHomeLayout>
@@ -13,7 +19,8 @@ const HomeLayout = ({ children }) => {
 }
 
 const StyledHomeLayout = styled.div`
-
+    background-color: ${pageStyles.backgoundColor};
+    color: ${pageStyles.textColor};
 `
 
 const Main = styled.main`
