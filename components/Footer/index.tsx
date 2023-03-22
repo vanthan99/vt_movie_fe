@@ -100,7 +100,11 @@ const Footer: React.FC<IFooterProps> = () => {
                             <StyledLink href='/'>Contact</StyledLink>
                         </Col>
                         <Col span={12} style={{ textAlign: 'end' }}>
-                            <span>CopyRight© {new Date().getFullYear()} Design by <span style={{ color: pageStyles.activeColor }}>ThanTruong</span>. All Rights ReServed</span>
+                            <>
+                                CopyRight© {new Date().getFullYear()} Design by 
+                                <span style={{ color: pageStyles.activeColor }}>ThanTruong</span>
+                                . All Rights ReServed
+                            </>
                         </Col>
                     </Row>
                 </Container>
