@@ -5,6 +5,7 @@ import {pageStyles} from '@/styles/styles.config'
 import PageStatus from "@/components/PageStatus";
 import Menu from "@/components/Menu";
 import Breadcrumb from "@/components/Breadcrumb";
+import BannerCarousel from "@/components/BannerCarousel";
 const HomeLayout = ({ children }) => {
     return (
         <StyledHomeLayout>
@@ -12,6 +13,7 @@ const HomeLayout = ({ children }) => {
             <Header />
             <Menu />
             <Breadcrumb />
+            <BannerCarousel />
             <Main>{children}</Main>
             <Footer />
         </StyledHomeLayout>
