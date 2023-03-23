@@ -6,6 +6,7 @@ import PageStatus from "@/components/PageStatus";
 import Menu from "@/components/Menu";
 import Breadcrumb from "@/components/Breadcrumb";
 import BannerCarousel from "@/components/BannerCarousel";
+import MovieCarousel from "@/components/MovieCarousel";
 const HomeLayout = ({ children }) => {
     return (
         <StyledHomeLayout>
@@ -14,6 +15,7 @@ const HomeLayout = ({ children }) => {
             <Menu />
             <Breadcrumb />
             <BannerCarousel />
+            <MovieCarousel />
             <Main>{children}</Main>
             <Footer />
         </StyledHomeLayout>
