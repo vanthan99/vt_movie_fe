@@ -4,27 +4,26 @@ import { Col, Row, Space } from "antd";
 import React from "react";
 import styled from "styled-components";
 import Container from "../Container";
+import { ICatalogInfo } from "@/commons/common";
 
-export interface ICatalogInfo {
-    prevOnClick?:any,
-    nextOnClick?:any,
-}
 
-const CatalogInfo: React.FC = (props:ICatalogInfo ) => {
+
+const CatalogInfo: React.FC<ICatalogInfo> = (props:ICatalogInfo ) => {
+    const {description, title, nextOnClick, prevOnClick} = props;
     return (
         <CatalogInfoWrapper>
             <Container>
                 <StyledRow>
                     <Col span={20}>
-                        <Title>Movie Category</Title>
-                        <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Description>
+                        <Title>{title}</Title>
+                        <Description>{description}</Description>
                     </Col>
                     <StyledCol span={4}>
                         <Space>
-                            <Prev onClick={props.prevOnClick}>
+                            <Prev onClick={prevOnClick}>
                                 <LeftOutlined />
                             </Prev>
-                            <Next  onClick={props.nextOnClick}>
+                            <Next  onClick={nextOnClick}>
                                 <RightOutlined />
                             </Next>
                         </Space>
@@ -44,7 +43,7 @@ const StyledCol = styled(Col)`
 const StyledRow = styled(Row)`
     border-left: 2px solid ${pageStyles.activeColor};
     padding-left: 1rem;
-    margin: 2rem 0;
+    margin-top: 1rem;
     border-bottom: 1px solid ${pageStyles.textColor2};
     padding-bottom: 1rem;
 `

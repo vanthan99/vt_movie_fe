@@ -13,8 +13,8 @@ const Menu = () => {
                     <ul>
                         <li><StyledLink isActive href='/'>Home</StyledLink></li>
                         <li><StyledLink href='/gridleftsitebar'>Movie layout</StyledLink></li>
-                        <li><StyledLink href='/'>Celebrities</StyledLink></li>
-                        <li><StyledLink href='/'>Showtime</StyledLink></li>
+                        <li><StyledLink href='/odd'>Celebrities</StyledLink></li>
+                        <li><StyledLink href='/odd/abc'>Showtime</StyledLink></li>
                         <li><StyledLink href='/'>News</StyledLink></li>
                         <li><StyledLink href='/'>Contact</StyledLink></li>
                     </ul>
