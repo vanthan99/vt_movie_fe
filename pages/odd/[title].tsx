@@ -1,20 +1,18 @@
+import { IMovieCarousel } from "@/commons/common"
 import Comments from "@/components/Comments"
 import Container from "@/components/Container"
 import MovieCarousel from "@/components/MovieCarousel"
 import DetailLayout from '@/layouts/DetailLayout'
 import { pagesInfo } from "@/pagesInfo"
 import { pageStyles } from "@/styles/styles.config"
-import { Comment } from '@ant-design/compatible'
 import { FacebookOutlined, InstagramOutlined, PlayCircleOutlined, TwitterOutlined } from "@ant-design/icons"
-import { Avatar as AntdAvatar, Button, Form, Input, List, Rate, Space, Tooltip } from "antd"
-import moment from "moment"
+import { Rate, Space } from "antd"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import { ReactElement, useState } from "react"
+import { ReactElement } from "react"
 import styled from "styled-components"
 import { NextPageWithLayout } from "../_app"
-import { IMovieCarousel } from "@/commons/common"
 
 // end wrote an reply
 
@@ -57,10 +55,10 @@ const DetailPage: NextPageWithLayout = () => {
                         <Shared>
                             <SharedTile>Share:</SharedTile>
                             <Space>
-                                <SharedItem href='/'><FacebookOutlined style={{fontSize:'20px', color:pageStyles.activeColor}}/></SharedItem>
-                                <SharedItem href='/'><TwitterOutlined style={{fontSize:'20px', color:'#0abaef'}} /></SharedItem>
-                                <SharedItem href='/'><InstagramOutlined style={{fontSize:'20px', color:'#b60fd5'}} /></SharedItem>
-                                <SharedItem href='/'><FacebookOutlined style={{fontSize:'20px', color:'#dbac29'}} /></SharedItem>
+                                <SharedItem href='/'><FacebookOutlined style={{ fontSize: '20px', color: pageStyles.activeColor }} /></SharedItem>
+                                <SharedItem href='/'><TwitterOutlined style={{ fontSize: '20px', color: '#0abaef' }} /></SharedItem>
+                                <SharedItem href='/'><InstagramOutlined style={{ fontSize: '20px', color: '#b60fd5' }} /></SharedItem>
+                                <SharedItem href='/'><FacebookOutlined style={{ fontSize: '20px', color: '#dbac29' }} /></SharedItem>
                             </Space>
 
                         </Shared>
@@ -82,9 +80,9 @@ const DetailPage: NextPageWithLayout = () => {
                 <CommentWrapper>
                     <Comments />
                 </CommentWrapper>
-                
+
             </Container>
-            <MovieCarousel {...iMovieCarousel}/>
+            <MovieCarousel {...iMovieCarousel} />
         </>
     )
 }
