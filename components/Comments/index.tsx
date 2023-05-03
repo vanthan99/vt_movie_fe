@@ -108,8 +108,8 @@ const onFinishFailed = (errorInfo: any) => {
           header={<ListHeader>Comments({data.length})</ListHeader>}
           itemLayout="horizontal"
           dataSource={data}
-          renderItem={item => (
-            <li>
+          renderItem={(item,index) => (
+            <li key={index}>
               <StyledComment
                 actions={item.actions}
                 author={item.author}
