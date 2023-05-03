@@ -21,9 +21,9 @@ const Comments = () => {
 
   const [data, setData] = useState([
     {
-      actions: [<Reply>Reply</Reply>],
-      author: (<Author>Han Solo3</Author>),
-      avatar: (<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
+      actions: [<Reply key="reply">Reply</Reply>],
+      author: (<Author key="author">Han Solo</Author>),
+      avatar: (<Avatar key="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
       content: (
         <p>
           We supply a series of design principles, practical patterns and high quality design
@@ -38,9 +38,9 @@ const Comments = () => {
       ),
     },
     {
-      actions: [<Reply>Reply</Reply>],
-      author: (<Author>Han Solo2</Author>),
-      avatar: (<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
+      actions: [<Reply key="reply">Reply</Reply>],
+      author: (<Author key="author">Han Solo</Author>),
+      avatar: (<Avatar  key="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
       content: (
         <p>
           We supply a series of design principles, practical patterns and high quality design
@@ -72,9 +72,9 @@ const Comments = () => {
     setTimeout(() => {
       setSubmitting(false);
       setData(item => [...item, {
-        actions: [<Reply>Reply</Reply>],
-        author: (<Author>Han Solo1</Author>),
-        avatar: (<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
+        actions: [<Reply key="reply">Reply</Reply>],
+        author: (<Author>Han Solo</Author>),
+        avatar: (<Avatar  key="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
         content: (
           <p>
             We supply a series of design principles, practical patterns and high quality design
