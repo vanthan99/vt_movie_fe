@@ -22,7 +22,7 @@ const Comments = () => {
   const [data, setData] = useState([
     {
       actions: [<Reply>Reply</Reply>],
-      author: (<Author>Han Solo</Author>),
+      author: (<Author>Han Solo3</Author>),
       avatar: (<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
       content: (
         <p>
@@ -39,7 +39,7 @@ const Comments = () => {
     },
     {
       actions: [<Reply>Reply</Reply>],
-      author: (<Author>Han Solo</Author>),
+      author: (<Author>Han Solo2</Author>),
       avatar: (<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
       content: (
         <p>
@@ -73,7 +73,7 @@ const Comments = () => {
       setSubmitting(false);
       setData(item => [...item, {
         actions: [<Reply>Reply</Reply>],
-        author: (<Author>Han Solo</Author>),
+        author: (<Author>Han Solo1</Author>),
         avatar: (<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />),
         content: (
           <p>
