@@ -1,0 +1,10 @@
+diff a/next.config.js b/next.config.js	(rejected hunks)
+@@ -6,7 +6,7 @@
+     styledComponents: true,
+   },
+   images: {
+-    domains: ['demo.amytheme.com'],
++    domains: ['demo.amytheme.com','images.unsplash.com'],
+   }
+ }
+ 
