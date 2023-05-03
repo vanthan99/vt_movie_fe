@@ -1,7 +1,6 @@
 import { pageStyles } from "@/styles/styles.config";
 import { Comment } from "@ant-design/compatible";
 import { Avatar, Button, Col, Form, Input, List, Row, Tooltip } from "antd";
-import moment from "moment";
 import { useState } from "react";
 import styled from "styled-components";
 
