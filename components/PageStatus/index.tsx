@@ -14,16 +14,16 @@ const PageStatus = () => {
                         <Auth>
                             <AuthItem href='/'>
                                 <Space>
-                                     <UserOutlined />
-                                     <span>Register</span>
+                                    <UserOutlined />
+                                    <span>Register</span>
                                 </Space>
                             </AuthItem>
-                            <AuthItem isActive href='/'>
+                            <AuthItem isactive={1} href='/'>
                                 <Space>
-                                    <LoginOutlined /> 
+                                    <LoginOutlined />
                                     <span>Login</span>
                                 </Space>
-                                
+
                             </AuthItem>
                         </Auth>
                     </Col>
@@ -42,8 +42,8 @@ const PageStatus = () => {
 const Auth = styled.div`
     
 `
-const AuthItem = styled(Link)<{isActive?:boolean}>`
-    color: ${props => props.isActive?pageStyles.activeColor:pageStyles.textColor};
+const AuthItem = styled(Link) <{ isactive?: number }>`
+    color: ${props => props.isactive == 1 ? pageStyles.activeColor : pageStyles.textColor};
         padding-right: 1rem;
 
     &:hover {

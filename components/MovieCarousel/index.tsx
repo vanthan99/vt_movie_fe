@@ -43,14 +43,13 @@ const MovieCarousel: React.FC<IMovieCarousel> = (iMovieCarousel: IMovieCarousel)
             key: '4',
         },
     ];
-    const [current, setCurrent] = useState('mail');
+    const [current, setCurrent] = useState('1');
 
     const onClick: MenuProps['onClick'] = (e) => {
         console.log('click ', e.key);
         setCurrent(e.key);
     };
     // end ant menu
-
 
     return (
         <MovieCarouselWrapper {...iMovieCarousel}>

@@ -3,14 +3,15 @@ import { pageStyles } from "@/styles/styles.config";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Col, Rate, Row } from "antd";
 import Link from "next/link";
-import React from "react";
 import styled from "styled-components";
 
 
-const ProductGridItem = () => {
+const ProductGridItem = (iProductGridItem:IProductGridItem) => {
+    const {
+        link
+    } = iProductGridItem;
     return (
         <ProductGridItemWrapper>
-            <StyledLink href='/'>
             <Row style={{
                 height: '3rem',
                 alignItems: 'center'
@@ -28,7 +29,7 @@ const ProductGridItem = () => {
             </Row>
             <Row justify='center' align='middle' style={{height:'15rem'}}>
                 <Col>
-                <StyledLink href='/'>
+                <StyledLink href={link}>
                      <StyledPlayCircleOutlined/>
                 </StyledLink>
                    
@@ -37,7 +38,7 @@ const ProductGridItem = () => {
 
             <Row justify='center' style={{height:'10rem',padding:'0 1rem',marginTop:'3rem'}}>
                 <Col span={24}>
-                    <StyledLink href='/'>
+                    <StyledLink href={link}>
                          <Title>
                         Hurry Animate Blue Stack
                     </Title>
@@ -61,7 +62,6 @@ const ProductGridItem = () => {
                     <ViewCount>115k Views</ViewCount>
                 </Col>
             </Row>
-            </StyledLink>
         </ProductGridItemWrapper>
     );
 }
@@ -98,7 +98,7 @@ opacity: 0;
 `
 
 const ViewCount = styled.div`
-background-color: ${pageStyles.backgoundColor};
+    background-color: ${pageStyles.backgoundColor};
     padding: 0.5rem 1rem;
     width: 7rem;
     position: absolute;
@@ -111,7 +111,7 @@ background-color: ${pageStyles.backgoundColor};
 `
 
 const Details = styled.div`
-background-color: ${pageStyles.backgoundColor};
+    background-color: ${pageStyles.backgoundColor};
     width: 5rem;
     padding: 0.5rem 1rem;
     border-top-right-radius: 1rem;

@@ -27,7 +27,7 @@ const Breadcrumb = () => {
                             <StyledLink href='/'>Products</StyledLink>
                         </AntdBreadcrumb.Item>
                         <AntdBreadcrumb.Item>
-                            <StyledLink isActive href='/'>Movie List Page</StyledLink>
+                            <StyledLink active={1} href='/'>Movie List Page</StyledLink>
                         </AntdBreadcrumb.Item>
                     </StyledAntdBreadcrumb>
                     <StyledLink href='/'>
@@ -58,8 +58,8 @@ const StyledAntdBreadcrumb = styled(AntdBreadcrumb)`
     }
 `
 
-const StyledLink = styled(Link) <{ isActive?: boolean }>`
-    color: ${props => props.isActive ? pageStyles.activeColor : pageStyles.textColor};
+const StyledLink = styled(Link) <{ active?: 1|0 }>`
+    color: ${props => props.active==1 ? pageStyles.activeColor : pageStyles.textColor};
 
     &:hover {
         color: ${pageStyles.activeColor};

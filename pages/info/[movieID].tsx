@@ -1,4 +1,6 @@
-import { IMovieCarousel } from "@/commons/common"
+import { useRouter } from "next/router";
+import { NextPageWithLayout } from "../_app";
+import { IMovieCarousel } from "@/commons/common";
 import Comments from "@/components/Comments"
 import Container from "@/components/Container"
 import MovieCarousel from "@/components/MovieCarousel"
@@ -12,9 +14,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { ReactElement } from "react"
 import styled from "styled-components"
-import { NextPageWithLayout } from "../_app"
-
-// end wrote an reply
 
 const DetailPage: NextPageWithLayout = () => {
     const iMovieCarousel: IMovieCarousel = {
@@ -25,6 +24,10 @@ const DetailPage: NextPageWithLayout = () => {
             description: 'lorem ipsum is sunoly dummy text of printing and ypesettings'
         }
     }
+    const router = useRouter();
+    const {movieID} = router.query;
+    console.log("movieID = ",movieID);
+    
     return (
         <>
             <Head>
@@ -40,7 +43,7 @@ const DetailPage: NextPageWithLayout = () => {
                 </WatchWrapper>
                 <CommonInfoWrapper>
                     <AvatarWrapper>
-                        <Avatar src='/231' alt="123" width={50} height={70} />
+                        <Avatar src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80' alt="123" width={50} height={70} />
                     </AvatarWrapper>
                     <InfoWrapper>
                         <Title>Hury Animate Blue strack new moive (2018)</Title>
@@ -84,9 +87,8 @@ const DetailPage: NextPageWithLayout = () => {
             </Container>
             <MovieCarousel {...iMovieCarousel} />
         </>
-    )
+    );
 }
-
 
 const CommentWrapper = styled.div`
 // margin-left: 4rem;

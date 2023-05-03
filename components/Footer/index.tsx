@@ -28,7 +28,7 @@ const Footer: React.FC<IFooterProps> = () => {
                                     <StyledLink href='/'>Movie</StyledLink>
                                 </li>
                                 <li>
-                                    <StyledLink isActive href='/'>Videos</StyledLink>
+                                    <StyledLink active={1} href='/'>Videos</StyledLink>
                                 </li>
                                 <li>
                                     <StyledLink href='/'>English Movie</StyledLink>
@@ -94,7 +94,7 @@ const Footer: React.FC<IFooterProps> = () => {
                 <Container align='middle' style={{ height: '4rem' }}>
                     <Row>
                         <Col span={12}>
-                            <StyledLink isActive href='/'>About Us</StyledLink>
+                            <StyledLink active={1} href='/'>About Us</StyledLink>
                             <StyledLink href='/'>Celebrities</StyledLink>
                             <StyledLink href='/'>News</StyledLink>
                             <StyledLink href='/'>Contact</StyledLink>
@@ -155,8 +155,8 @@ const Title = styled.h3`
     }
 `
 
-const StyledLink = styled(Link) <{ isActive?: boolean }>`
-    color: ${props => props.isActive ? pageStyles.activeColor : pageStyles.textColor};
+const StyledLink = styled(Link) <{ active?: 1|0 }>`
+    color: ${props => props.active ? pageStyles.activeColor : pageStyles.textColor};
     margin-right: 10px;
     min-height: 19px;
     &:hover {

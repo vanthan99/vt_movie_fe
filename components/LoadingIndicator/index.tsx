@@ -1,9 +1,10 @@
+import { Spin } from "antd";
 import styled from "styled-components";
 
 const LoadingIndicator = () => {
     return (
         <StyledLoadingIndicator>
-            loading
+            <Spin />
         </StyledLoadingIndicator>
     );
 }
