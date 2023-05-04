@@ -1,16 +1,16 @@
 import { IMovieCarousel } from "@/commons/common";
 import Container from "@/components/Container";
 import MovieCarousel from "@/components/MovieCarousel";
+import Pagination from "@/components/Pagination";
 import ProductGridItem from "@/components/ProductGridItem";
 import Title from "@/components/Title";
-import DetailLayout from '@/layouts/DetailLayout';
+import BaseLayout from "@/layouts/BaseLayout";
 import { pagesInfo } from "@/pagesInfo";
 import { Col, Row } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
 import { NextPageWithLayout } from "../_app";
-import Pagination from "@/components/Pagination";
 
 const DetailPage: NextPageWithLayout = () => {
     const iMovieCarousel: IMovieCarousel = {
@@ -60,9 +60,9 @@ const DetailPage: NextPageWithLayout = () => {
 
 DetailPage.getLayout = function getLayout(page: ReactElement) {
     return (
-        <DetailLayout>
+        <BaseLayout>
             {page}
-        </DetailLayout>
+        </BaseLayout>
     )
 }
 

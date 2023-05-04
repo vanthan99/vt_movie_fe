@@ -14,6 +14,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ReactElement } from "react"
 import styled from "styled-components"
+import BaseLayout from "@/layouts/BaseLayout";
 
 const DetailPage: NextPageWithLayout = () => {
     const iMovieCarousel: IMovieCarousel = {
@@ -186,9 +187,9 @@ right: 1rem;
 
 DetailPage.getLayout = function getLayout(page: ReactElement) {
     return (
-        <DetailLayout>
+        <BaseLayout>
             {page}
-        </DetailLayout>
+        </BaseLayout>
     )
 }
 
