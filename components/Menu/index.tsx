@@ -212,7 +212,6 @@ const ParentItem = styled.div<{ active?: 1 | 0 }>`
     font-weight: 400;
     font-size: 17px;
     text-transform: uppercase;
-    cursor: pointer;
 
     &:hover {
         color: ${pageStyles.activeColor};
