@@ -1,6 +1,6 @@
 import { IProductGridItem } from "@/commons/common";
+import { PlayIcon } from "@/icons";
 import { pageStyles } from "@/styles/styles.config";
-import { PlayCircleOutlined } from "@ant-design/icons";
 import { Col, Rate, Row } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
@@ -29,10 +29,11 @@ const ProductGridItem = (iProductGridItem:IProductGridItem) => {
             </Row>
             <Row justify='center' align='middle' style={{height:'15rem'}}>
                 <Col>
-                <StyledLink href={link}>
-                     <StyledPlayCircleOutlined/>
-                </StyledLink>
-                   
+                    <StyledLink href={link}>
+                        <StyledIcon>
+                            <PlayIcon />
+                        </StyledIcon>
+                    </StyledLink>
                 </Col>
             </Row>
 
@@ -74,7 +75,7 @@ const StyledLink = styled(Link)`
     }
 `
 
-const StyledPlayCircleOutlined = styled(PlayCircleOutlined)`
+const StyledIcon = styled.span`
     opacity: 0;
     transition: 0.5s;
 `
@@ -148,7 +149,7 @@ const ProductGridItemWrapper = styled.div`
             opacity: 1;
         }
 
-        ${StyledPlayCircleOutlined} {
+        ${StyledIcon} {
             opacity: 1;
             font-size: 10rem;
         }

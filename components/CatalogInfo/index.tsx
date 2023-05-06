@@ -5,6 +5,7 @@ import React from "react";
 import styled from "styled-components";
 import Container from "../Container";
 import { ICatalogInfo } from "@/commons/common";
+import { LeftArrowIcon, RightArrowIcon } from "@/icons";
 
 
 
@@ -21,10 +22,15 @@ const CatalogInfo: React.FC<ICatalogInfo> = (props:ICatalogInfo ) => {
                     <StyledCol span={4}>
                         <Space>
                             <Prev onClick={prevOnClick}>
-                                <LeftOutlined />
+                                {/* <LeftOutlined /> */}
+                                <StyledIcon>
+                                    <LeftArrowIcon />
+                                </StyledIcon>
                             </Prev>
                             <Next  onClick={nextOnClick}>
-                                <RightOutlined />
+                                <StyledIcon>
+                                    <RightArrowIcon />
+                                </StyledIcon>
                             </Next>
                         </Space>
                     </StyledCol>
@@ -33,6 +39,10 @@ const CatalogInfo: React.FC<ICatalogInfo> = (props:ICatalogInfo ) => {
         </CatalogInfoWrapper>
     );
 }
+
+const StyledIcon = styled.span`
+
+`
 
 const StyledCol = styled(Col)`
     display: flex;
