@@ -40,16 +40,14 @@ const DetailPage: NextPageWithLayout = () => {
             <Container>
                 <Title>Phim lẻ nổi bật</Title>
             <Row gutter={[16,16]} style={rowStyled}>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+              <Col span={6}><ProductGridItem link='/info/abc123' /></Col>
+              <Col span={6}><ProductGridItem link='/info/abc123' /></Col>
+              <Col span={6}><ProductGridItem link='/info/abc123' /></Col>
+              <Col span={6}><ProductGridItem link='/info/abc123' /></Col>
+              <Col span={6}><ProductGridItem link='/info/abc123' /></Col>
+              <Col span={6}><ProductGridItem link='/info/abc123' /></Col>
+              <Col span={6}><ProductGridItem link='/info/abc123' /></Col>
+        
             </Row> 
             <Pagination />
             </Container>
