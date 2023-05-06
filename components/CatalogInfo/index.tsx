@@ -1,11 +1,9 @@
+import { ICatalogInfo } from "@/commons/common";
 import { pageStyles } from "@/styles/styles.config";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Col, Row, Space } from "antd";
 import React from "react";
 import styled from "styled-components";
 import Container from "../Container";
-import { ICatalogInfo } from "@/commons/common";
-import { LeftArrowIcon, RightArrowIcon } from "@/icons";
 
 
 
@@ -22,15 +20,10 @@ const CatalogInfo: React.FC<ICatalogInfo> = (props:ICatalogInfo ) => {
                     <StyledCol span={4}>
                         <Space>
                             <Prev onClick={prevOnClick}>
-                                {/* <LeftOutlined /> */}
-                                <StyledIcon>
-                                    <LeftArrowIcon />
-                                </StyledIcon>
+                               ←
                             </Prev>
-                            <Next  onClick={nextOnClick}>
-                                <StyledIcon>
-                                    <RightArrowIcon />
-                                </StyledIcon>
+                            <Next onClick={nextOnClick}>
+                                →
                             </Next>
                         </Space>
                     </StyledCol>
@@ -39,10 +32,6 @@ const CatalogInfo: React.FC<ICatalogInfo> = (props:ICatalogInfo ) => {
         </CatalogInfoWrapper>
     );
 }
-
-const StyledIcon = styled.span`
-
-`
 
 const StyledCol = styled(Col)`
     display: flex;
@@ -76,6 +65,7 @@ align-items: center;
 border-radius: 1rem;
 cursor: pointer;
 border: 1px solid ${pageStyles.textColor2};
+-webkit-text-stroke: 1px;
 
 &:hover {
     color: ${pageStyles.activeColor};
@@ -88,6 +78,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 border-radius: 1rem;
+-webkit-text-stroke: 1px;
 
 border: 1px solid ${pageStyles.textColor2};
 cursor: pointer;

@@ -1,5 +1,4 @@
 import { pageStyles } from "@/styles/styles.config";
-import { RightOutlined } from "@ant-design/icons";
 import { Carousel, Space } from "antd";
 import Link from "next/link";
 import React from "react";
@@ -31,7 +30,9 @@ const BannerCarousel = () => {
                                 <StyledLink href='/'>
                                     <Space>
                                         <span>Read More</span>
-                                        <RightOutlined />
+                                        <span style={{WebkitTextStroke:1}}>
+                                            →
+                                        </span>
                                     </Space>
                                 </StyledLink>
                             </Item>
@@ -108,14 +109,14 @@ const BannerCarouselWrapper = styled.div`
     .slick-prev {
         left: 1rem;
         &:before {
-            content: "<";
+            -webkit-text-stroke: 1px;
         }
     }
 
     .slick-next {
         right: 1rem;
         &:before {
-            content: ">";
+            -webkit-text-stroke: 1px;
         }
     }
 `
