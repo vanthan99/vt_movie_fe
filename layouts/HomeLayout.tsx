@@ -13,7 +13,7 @@ import React from "react";
 const HomeLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     const iMovieCarousel: IMovieCarousel = {
         centerMode: true,
-        slidesToShow: 5,
+        slidesToShow: 3,
         iCatalogInfo: {
             title: 'movie category',
             description: 'lorem ipsum is sunoly dummy text of printing and ypesettings'

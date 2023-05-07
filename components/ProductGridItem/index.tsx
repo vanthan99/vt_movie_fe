@@ -40,6 +40,10 @@ const TitleWrapper = styled(Link)`
         background-color: #000000a6;
         display: block;
 
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
         &:hover {
             color: ${pageStyles.activeColor};
         }
@@ -47,10 +51,15 @@ const TitleWrapper = styled(Link)`
 
 const PlayIconWrapper = styled(Link)`
     display: flex;
-    min-height: 15rem;
     justify-content: center;
     align-items: center;
     color: ${pageStyles.textColor};
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     .styled_icon {
         font-size: 1rem;
@@ -87,7 +96,11 @@ const ProductGridItemWrapper = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 15px;
-
+    min-height: 20rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
     .chapter_tag_wrapper {
         display: flex;
         justify-content: space-between;

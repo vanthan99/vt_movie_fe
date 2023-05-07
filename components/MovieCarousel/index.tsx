@@ -5,6 +5,7 @@ import styled from "styled-components";
 import CatalogInfo from "../CatalogInfo";
 import Container from "../Container";
 import { pageStyles } from "@/styles/styles.config";
+import ProductGridItem from "../ProductGridItem";
 
 const MovieCarousel: React.FC<IMovieCarousel> = (iMovieCarousel: IMovieCarousel) => {
     const { centerMode, slidesToShow, iCatalogInfo } = iMovieCarousel;
@@ -59,12 +60,37 @@ const MovieCarousel: React.FC<IMovieCarousel> = (iMovieCarousel: IMovieCarousel)
             </Container>
             <Container>
                 <Carousel {...carouselSettings} ref={carouselRef}>
-                    <Item>1</Item>
-                    <Item>2</Item>
-                    <Item>3</Item>
-                    <Item>4</Item>
-                    <Item>5</Item>
-                    <Item>6</Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                    <Item>
+                        <ProductGridItem link='/info/abc123' />
+                    </Item>
+                
                 </Carousel>
             </Container>
         </MovieCarouselWrapper>
@@ -108,6 +134,7 @@ const Item = styled.div`
     background-color: green;
     border-radius: 0.5rem;
     height: 30rem;
+    overflow: hidden;
 
     display: flex !important;
     justify-content: center;
