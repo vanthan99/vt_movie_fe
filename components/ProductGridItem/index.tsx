@@ -1,7 +1,6 @@
 import { IProductGridItem } from "@/commons/common";
 import { PlayIcon } from "@/icons";
 import { pageStyles } from "@/styles/styles.config";
-import { Col, Rate, Row } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -10,152 +9,110 @@ const ProductGridItem = (iProductGridItem:IProductGridItem) => {
     const {
         link
     } = iProductGridItem;
+
     return (
         <ProductGridItemWrapper>
-            <Row style={{
-                height: '3rem',
-                alignItems: 'center'
-            }}>
-                <Col span={12}>
-                    <Times>02:50:12</Times>
-                </Col>
-                <Col span={12}
-                    style={{
-                        textAlign: 'end'
-                    }}
-                >
-                    <StyledRate disabled defaultValue={2} />
-                </Col>
-            </Row>
-            <Row justify='center' align='middle' style={{height:'15rem'}}>
-                <Col>
-                    <StyledLink href={link}>
-                        <StyledIcon>
-                            <PlayIcon />
-                        </StyledIcon>
-                    </StyledLink>
-                </Col>
-            </Row>
-
-            <Row justify='center' style={{height:'10rem',padding:'0 1rem',marginTop:'3rem'}}>
-                <Col span={24}>
-                    <StyledLink href={link}>
-                         <Title>
-                        Hurry Animate Blue Stack
-                    </Title>
-                    </StyledLink>
+            <div className="chapter_tag_wrapper">
+                <div className="item">
+                    <Chapter>Tập 1</Chapter>
+                </div>
+                <div className="item">
+                    <Tag>FHD</Tag>
+                </div>
+            </div>
+            <PlayIconWrapper href={link}>
+                <span className="styled_icon">
+                    <PlayIcon />
+                </span>
+            </PlayIconWrapper>
                    
-
-                    <ReleaseYear>
-                        New movie (2018)
-                    </ReleaseYear>
-
-                    <Categorys>
-                        Category: English movie
-                    </Categorys>
-                </Col>
-            </Row>
-            <Row style={{height:'3rem'}}>
-                <Col span={12}>
-                    <Details>Details</Details>
-                </Col>
-                <Col span={12}>
-                    <ViewCount>115k Views</ViewCount>
-                </Col>
-            </Row>
+            <TitleWrapper href={link}>
+                <VietnameseTitle>Sinh Tồn Nơi Hoang Đảo</VietnameseTitle>
+                <EnglishTitle>Eden (2014)</EnglishTitle>
+            </TitleWrapper>
+            
         </ProductGridItemWrapper>
     );
 }
 
-const StyledLink = styled(Link)`
+const TitleWrapper = styled(Link)`
+        padding: 15px;
+        background-color: #000000a6;
+        display: block;
+
+        &:hover {
+            color: ${pageStyles.activeColor};
+        }
+`
+
+const PlayIconWrapper = styled(Link)`
+    display: flex;
+    min-height: 15rem;
+    justify-content: center;
+    align-items: center;
     color: ${pageStyles.textColor};
+
+    .styled_icon {
+        font-size: 1rem;
+        height: fit-content;
+        transition: .3s;
+        opacity: 0;
+    }
 
     &:hover {
         color: ${pageStyles.textColor};
     }
 `
 
-const StyledIcon = styled.span`
-    opacity: 0;
-    transition: 0.5s;
-`
+const VietnameseTitle = styled.div`
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+`;
+const EnglishTitle = styled.div`
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+`;
 
-const StyledRate = styled(Rate)`
-margin-right: 1rem;
-
-`
-
-const Times = styled.span`
-background-color: ${pageStyles.activeColor};
-padding: 5px 1rem;
-font-size: 15px;
-border-top-right-radius: 1rem;
-border-bottom-right-radius: 1rem;
-font-weight: 500;
-width: 7rem;
-
-transition: 0.5s;
-opacity: 0;
-`
-
-const ViewCount = styled.div`
-    background-color: ${pageStyles.backgoundColor};
-    padding: 0.5rem 1rem;
-    width: 7rem;
-    position: absolute;
-    right: 0;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-
-    opacity: 0;
-    transition: 0.5s;
-`
-
-const Details = styled.div`
-    background-color: ${pageStyles.backgoundColor};
-    width: 5rem;
-    padding: 0.5rem 1rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    transition: 0.5s;
-`
-
-const ReleaseYear = styled.p`
+const Chapter = styled.div`
 
 `
 
-const Categorys = styled.p`
-
+const Tag = styled.div`
 `
 
-const Title = styled.h3`
-    transition: 0.5s;
-`
 const ProductGridItemWrapper = styled.div`
-    height: 34rem;
-    // background-color: ${pageStyles.activeColor};
-    background-color: #ff00006b;
-    
+    background-image: url(https://xemphim123.com/storage/images/biet-doi-cho-san/biet-doi-cho-san-thumb.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 15px;
+
+    .chapter_tag_wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+
+    ${Chapter}, ${Tag} {
+        width: fit-content;
+        padding: 5px;
+
+        background-color: #37c93cc7;
+        border-radius: 5px;
+    }
+
     &:hover {
-        ${Times} {
-            opacity: 1;
+        ${PlayIconWrapper} {
+            .styled_icon {
+                font-size: 3rem;
+                opacity: 1;
+            }
         }
 
-        ${Details} {
-            background-color: ${pageStyles.activeColor};
-        }
-
-        ${ViewCount} {
-            opacity: 1;
-        }
-
-        ${StyledIcon} {
-            opacity: 1;
-            font-size: 10rem;
-        }
-
-        ${Title} {
-            color: ${pageStyles.activeColor};
+        ${TitleWrapper} {
+                color: ${pageStyles.activeColor};
         }
     }
 `
