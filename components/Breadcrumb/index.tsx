@@ -1,11 +1,15 @@
-import { pageStyles } from '@/styles/styles.config';
 import { HomeOutlined, RightOutlined } from '@ant-design/icons';
 import { Breadcrumb as AntdBreadcrumb, Space } from 'antd'
 import Link from 'next/link';
 import styled from 'styled-components';
 import Container from '../Container';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { pageStyles } from '@/styles/styles.config';
+const { Item } = AntdBreadcrumb;
 
 const Breadcrumb = () => {
+    const router = useRouter();
     return (
         <BreadcrumbWrapper>
             <Container align='middle' style={{ height: '5rem' }}>
@@ -13,22 +17,22 @@ const Breadcrumb = () => {
                     <StyledAntdBreadcrumb
                         separator='>'
                     >
-                        <AntdBreadcrumb.Item>
+                        <Item>
                             <Space>
                                 <StyledLink href='/'>
                                     <Space>
                                         <HomeOutlined />
-                                        <span>Home</span>
+                                        <span>Xem Phim</span>
                                     </Space>
                                 </StyledLink>
                             </Space>
-                        </AntdBreadcrumb.Item>
-                        <AntdBreadcrumb.Item>
+                        </Item>
+                        <Item>
                             <StyledLink href='/'>Products</StyledLink>
-                        </AntdBreadcrumb.Item>
-                        <AntdBreadcrumb.Item>
-                            <StyledLink active={1} href='/'>Movie List Page</StyledLink>
-                        </AntdBreadcrumb.Item>
+                        </Item>
+                        <Item>
+                            <StyledLink href='/'>Movie List Page</StyledLink>
+                        </Item>
                     </StyledAntdBreadcrumb>
                     <StyledLink href='/'>
                         <Space>
@@ -58,8 +62,8 @@ const StyledAntdBreadcrumb = styled(AntdBreadcrumb)`
     }
 `
 
-const StyledLink = styled(Link) <{ active?: 1|0 }>`
-    color: ${props => props.active==1 ? pageStyles.activeColor : pageStyles.textColor};
+const StyledLink = styled(Link)`
+    color: ${pageStyles.textColor};
 
     &:hover {
         color: ${pageStyles.activeColor};
