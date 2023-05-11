@@ -48,8 +48,10 @@ const StyledRow = styled(Row)`
 `
 
 const Title = styled.div`
-    font-size: 1.75rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    font-weight: 400;
 `
 
 const Description = styled.div`

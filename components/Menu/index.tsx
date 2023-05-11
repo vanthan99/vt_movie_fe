@@ -3,10 +3,9 @@ import { pageStyles } from "@/styles/styles.config";
 import { CaretDownOutlined, FacebookOutlined, InstagramOutlined, SkypeOutlined, TwitterOutlined, YoutubeOutlined } from "@ant-design/icons";
 import { Space } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import Container from "../Container";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 const Menu = () => {
     const MenuDatas: Array<IMenu> = [
         {
@@ -155,10 +154,6 @@ const Menu = () => {
         },
     ];
     const router = useRouter();
-    const [activePage, setActivePage] = useState("/")
-    // useEffect(() => {
-
-    // },[])
     return (
         <MenuWrapper>
             <Container align='middle' style={{ height: '4rem' }}>
@@ -171,10 +166,10 @@ const Menu = () => {
                                 return (
                                     <li key={index}>
                                         <ParentItem>
-                                            {subItems != undefined && subItems.length > 0 && <>{item.title} <CaretDownOutlined style={{ fontSize: '14px' }} /></> || <StyledLink href={item.parentLink ? item.parentLink + item.link : item.link}>{item.title}</StyledLink>}
+                                            {subItems != undefined && subItems.length > 0 && <>{item.title} <CaretDownOutlined style={{ fontSize: '14px' }} /></> || <StyledLink className={router.asPath === (item.parentLink ? item.parentLink + item.link : item.link)?'active':''} href={item.parentLink ? item.parentLink + item.link : item.link}>{item.title}</StyledLink>}
                                         </ParentItem>
                                         {subItems != undefined && subItems.length > 0 && <SubItemsWrapper>
-                                            {subItems?.map((value, i) => <SubItem key={i} href={item.parentLink ? item.parentLink + value.link : value.link}>{value.title}</SubItem>)}
+                                            {subItems?.map((value, i) => <SubItem className={router.asPath === (item.parentLink ? item.parentLink + value.link : value.link)?'active':'' } key={i} href={item.parentLink ? item.parentLink + value.link : value.link}>{value.title}</SubItem>)}
                                         </SubItemsWrapper>}
                                     </li>
                                 )
@@ -182,7 +177,7 @@ const Menu = () => {
                         }
                     </ul>
                     <Shared>
-                        <Space>
+                        <StyledSpace>
                             <StyledLink href='/'>
                                 <FacebookOutlined style={{ fontSize: '20px' }} />
                             </StyledLink>
@@ -198,7 +193,7 @@ const Menu = () => {
                             <StyledLink href='/'>
                                 <InstagramOutlined style={{ fontSize: '20px' }} />
                             </StyledLink>
-                        </Space>
+                        </StyledSpace>
                     </Shared>
                 </Content>
             </Container>
@@ -206,8 +201,12 @@ const Menu = () => {
     );
 }
 
-const ParentItem = styled.div<{ active?: 1 | 0 }>`
-    color: ${props => props.active == 1 ? pageStyles.activeColor : pageStyles.textColor};
+const StyledSpace = styled(Space)`
+    transition: .5s;
+`
+
+const ParentItem = styled.div`
+    color: ${pageStyles.textColor};
     font-weight: 400;
     font-size: 17px;
     text-transform: uppercase;
@@ -257,6 +256,11 @@ const SubItemsWrapper = styled.div`
 
 const Shared = styled.div`
     
+    &:hover {
+        ${StyledSpace} {
+            gap: 15px !important;
+        }
+    }
 `
 
 const Content = styled.div`
@@ -277,6 +281,10 @@ const MenuWrapper = styled.div`
                 padding-right: 1rem;
                 position: relative;
                 
+                .active {
+                    color: ${pageStyles.activeColor};
+                }
+
                 &:hover {
                     ${SubItemsWrapper} {
                         display: flex;

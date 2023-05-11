@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IProductGridItem {
     image?: string,
     rate?: number,
@@ -30,3 +32,8 @@ export interface IMenu {
     item: IMenuItem,
     subItems?: Array<IMenuItem>
 }
+
+// breadcrumb items
+export type BreadcrumbsProps = {
+    items: React.ReactNode[];
+};

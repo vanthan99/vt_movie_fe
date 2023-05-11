@@ -14,7 +14,6 @@ const BaseLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
             <PageStatus />
             <Header />
             <Menu />
-            <Breadcrumb />
             <Suspense fallback={<LoadingIndicator />}>
                 <Main>{children}</Main>
             </Suspense>

@@ -1,20 +1,21 @@
-import { useRouter } from "next/router";
-import { NextPageWithLayout } from "../_app";
 import { IMovieCarousel } from "@/commons/common";
-import Comments from "@/components/Comments"
-import Container from "@/components/Container"
-import MovieCarousel from "@/components/MovieCarousel"
-import DetailLayout from '@/layouts/DetailLayout'
-import { pagesInfo } from "@/pagesInfo"
-import { pageStyles } from "@/styles/styles.config"
-import { FacebookOutlined, InstagramOutlined, PlayCircleOutlined, TwitterOutlined } from "@ant-design/icons"
-import { Rate, Space } from "antd"
-import Head from "next/head"
-import Image from "next/image"
-import Link from "next/link"
-import { ReactElement } from "react"
-import styled from "styled-components"
+import Breadcrumb from "@/components/Breadcrumb";
+import Comments from "@/components/Comments";
+import Container from "@/components/Container";
+import MovieCarousel from "@/components/MovieCarousel";
+import StyledBreadcrumblink from "@/components/StyledBreadcrumbLink";
 import BaseLayout from "@/layouts/BaseLayout";
+import { pagesInfo } from "@/pagesInfo";
+import { pageStyles } from "@/styles/styles.config";
+import { FacebookOutlined, HomeOutlined, InstagramOutlined, PlayCircleOutlined, TwitterOutlined } from "@ant-design/icons";
+import { Rate, Space } from "antd";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { ReactElement } from "react";
+import styled from "styled-components";
+import { NextPageWithLayout } from "../_app";
 
 const DetailPage: NextPageWithLayout = () => {
     const iMovieCarousel: IMovieCarousel = {
@@ -27,8 +28,17 @@ const DetailPage: NextPageWithLayout = () => {
     }
     const router = useRouter();
     const {movieID} = router.query;
-    console.log("movieID = ",movieID);
-    
+
+    const breadcrumbItems: Array<React.ReactNode> = [
+        <StyledBreadcrumblink href='/'>
+            <Space>
+                <HomeOutlined />
+                <span>Xem Phim</span>
+            </Space>
+        </StyledBreadcrumblink>,
+        <StyledBreadcrumblink href='/'>phim chiếu rạp</StyledBreadcrumblink>,
+        <span style={{color:pageStyles.activeColor}}>Avatar</span>,
+    ]
     return (
         <>
             <Head>
@@ -37,6 +47,7 @@ const DetailPage: NextPageWithLayout = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Breadcrumb items={breadcrumbItems} />
             <Container>
                 <WatchWrapper>
                     <StyledRate disabled defaultValue={2} />

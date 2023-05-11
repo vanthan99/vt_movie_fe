@@ -1,15 +1,13 @@
-import { HomeOutlined, RightOutlined } from '@ant-design/icons';
-import { Breadcrumb as AntdBreadcrumb, Space } from 'antd'
+import { BreadcrumbsProps } from '@/commons/common';
+import { pageStyles } from '@/styles/styles.config';
+import { RightOutlined } from '@ant-design/icons';
+import { Breadcrumb as AntdBreadcrumb, Space } from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Container from '../Container';
-import { useRouter } from 'next/router';
-import React from 'react';
-import { pageStyles } from '@/styles/styles.config';
 const { Item } = AntdBreadcrumb;
 
-const Breadcrumb = () => {
-    const router = useRouter();
+const Breadcrumb = ({items}:BreadcrumbsProps) => {
     return (
         <BreadcrumbWrapper>
             <Container align='middle' style={{ height: '5rem' }}>
@@ -17,22 +15,7 @@ const Breadcrumb = () => {
                     <StyledAntdBreadcrumb
                         separator='>'
                     >
-                        <Item>
-                            <Space>
-                                <StyledLink href='/'>
-                                    <Space>
-                                        <HomeOutlined />
-                                        <span>Xem Phim</span>
-                                    </Space>
-                                </StyledLink>
-                            </Space>
-                        </Item>
-                        <Item>
-                            <StyledLink href='/'>Products</StyledLink>
-                        </Item>
-                        <Item>
-                            <StyledLink href='/'>Movie List Page</StyledLink>
-                        </Item>
+                        {items?.map((item,index)=> <Item key={index}>{item}</Item>)}
                     </StyledAntdBreadcrumb>
                     <StyledLink href='/'>
                         <Space>
@@ -48,6 +31,9 @@ const Breadcrumb = () => {
 
 const StyledAntdBreadcrumb = styled(AntdBreadcrumb)`
     color: ${pageStyles.textColor};
+
+    text-transform: capitalize;
+
     a {
         color: ${pageStyles.textColor};
 
@@ -79,6 +65,10 @@ const Content = styled.div`
 
 const BreadcrumbWrapper = styled.div`
     background-color: ${pageStyles.textColor2};
+
+    span {
+        color: ${pageStyles.textColor};
+    }
 `
 
 export default Breadcrumb;

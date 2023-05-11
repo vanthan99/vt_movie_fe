@@ -1,12 +1,15 @@
 import { IMovieCarousel } from "@/commons/common";
+import Breadcrumb from "@/components/Breadcrumb";
 import Container from "@/components/Container";
 import MovieCarousel from "@/components/MovieCarousel";
 import Pagination from "@/components/Pagination";
 import ProductGridItem from "@/components/ProductGridItem";
+import StyledBreadcrumblink from "@/components/StyledBreadcrumbLink";
 import Title from "@/components/Title";
 import BaseLayout from "@/layouts/BaseLayout";
 import { pagesInfo } from "@/pagesInfo";
-import { Col, Row } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
+import { Col, Row, Space } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
@@ -22,13 +25,23 @@ const DetailPage: NextPageWithLayout = () => {
         }
     }
     const router = useRouter();
-    const {movieID} = router.query;
-    console.log("movieID = ",movieID);
-    const rowStyled :React.CSSProperties = {
-        marginTop:'1.75rem',
-        marginBottom:'1.75rem',
-      }
-      
+    const { movieID } = router.query;
+
+    const rowStyled: React.CSSProperties = {
+        marginTop: '1.75rem',
+        marginBottom: '1.75rem',
+    }
+
+    const breadcrumbItems: Array<React.ReactNode> = [
+        <StyledBreadcrumblink href='/'>
+            <Space>
+                <HomeOutlined />
+                <span>Xem Phim</span>
+            </Space>
+        </StyledBreadcrumblink>,
+        <span>Danh sách phim chiếu rạp mới</span>,
+    ]
+
     return (
         <>
             <Head>
@@ -37,19 +50,21 @@ const DetailPage: NextPageWithLayout = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Breadcrumb items={breadcrumbItems} />
             <Container>
+
                 <Title>Phim lẻ nổi bật</Title>
-            <Row gutter={[16,16]} style={rowStyled}>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-              <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
-        
-            </Row> 
-            <Pagination />
+                <Row gutter={[16, 16]} style={rowStyled}>
+                    <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+                    <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+                    <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+                    <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+                    <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+                    <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+                    <Col span={4}><ProductGridItem link='/info/abc123' /></Col>
+
+                </Row>
+                <Pagination />
             </Container>
             <MovieCarousel {...iMovieCarousel} />
         </>
