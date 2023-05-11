@@ -24,7 +24,6 @@ const MainLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
             <PageStatus />
             <Header />
             <Menu />
-            <Breadcrumb />
             <BannerCarousel />
             <MovieCarousel {...iMovieCarousel} />
             <Main>{children}</Main>
