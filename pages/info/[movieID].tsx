@@ -1,6 +1,5 @@
 import { IMovieCarousel } from "@/commons/common";
 import Breadcrumb from "@/components/Breadcrumb";
-import Comments from "@/components/Comments";
 import Container from "@/components/Container";
 import MovieCarousel from "@/components/MovieCarousel";
 import StyledBreadcrumblink from "@/components/StyledBreadcrumbLink";
@@ -10,7 +9,6 @@ import { pageStyles } from "@/styles/styles.config";
 import { FacebookOutlined, HomeOutlined, InstagramOutlined, PlayCircleOutlined, TwitterOutlined } from "@ant-design/icons";
 import { Rate, Space } from "antd";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
@@ -110,19 +108,19 @@ const CommentWrapper = styled.div`
 `;
 
 const StoryTitle = styled.p`
-font-size: 2rem;
+    font-size: 2rem;
 `
 
 const StoryContent = styled.p`
-font-size: 1rem;
+    font-size: 1rem;
 `
 
 const StoryWrapper = styled.div`
-margin-left: 4rem;
+    margin-left: 4rem;
 `
 
 const InfoItem = styled.div`
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
 `
 
 const SharedTile = styled.span`
@@ -142,19 +140,19 @@ const Shared = styled.div`
 `
 
 const InfoWrapper = styled.div`
-width: 75%;
-margin-top: 3rem;
-padding-left: 2rem;
+    width: 75%;
+    margin-top: 3rem;
+    padding-left: 2rem;
 `
 const Avatar = styled.div`
-background-image: url(https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg);
-background-size: cover;
-background-repeat: no-repeat;
+    background-image: url(https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 
-width: 20rem;
-height: 30rem;
+    width: 20rem;
+    height: 30rem;
 
-position: relative;
+    position: relative;
     top: -12rem;
     border-radius: 1rem;
 `
@@ -177,7 +175,7 @@ const WatchWrapper = styled.div`
 
 
 const CommonInfoWrapper = styled.div`
-display: flex;
+    display: flex;
     margin-left: 4rem;
 
         justify-content: space-between;
@@ -185,15 +183,15 @@ display: flex;
 `
 
 const Title = styled.h3`
-color: green;
+    color: green;
     font-size: 2rem;
 
 `
 
 const StyledRate = styled(Rate)`
-position: absolute;
-top: 1rem;
-right: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 `
 
 DetailPage.getLayout = function getLayout(page: ReactElement) {
