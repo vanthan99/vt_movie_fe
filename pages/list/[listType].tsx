@@ -31,15 +31,15 @@ const DetailPage: NextPageWithLayout = () => {
         marginTop: '1.75rem',
         marginBottom: '1.75rem',
     }
-
+    var key = 0;
     const breadcrumbItems: Array<React.ReactNode> = [
-        <StyledBreadcrumblink href='/'>
+        <StyledBreadcrumblink key={key++} href='/'>
             <Space>
                 <HomeOutlined />
                 <span>Xem Phim</span>
             </Space>
         </StyledBreadcrumblink>,
-        <span>Danh sách phim chiếu rạp mới</span>,
+        <span key={key++}>Danh sách phim chiếu rạp mới</span>,
     ]
 
     return (

@@ -26,16 +26,16 @@ const DetailPage: NextPageWithLayout = () => {
     }
     const router = useRouter();
     const {movieID} = router.query;
-
+    var key = 1;
     const breadcrumbItems: Array<React.ReactNode> = [
-        <StyledBreadcrumblink href='/'>
+        <StyledBreadcrumblink key={key++} href='/'>
             <Space>
                 <HomeOutlined />
                 <span>Xem Phim</span>
             </Space>
         </StyledBreadcrumblink>,
-        <StyledBreadcrumblink href='/'>phim chiếu rạp</StyledBreadcrumblink>,
-        <span style={{color:pageStyles.activeColor}}>Avatar</span>,
+        <StyledBreadcrumblink key={key++} href='/'>phim chiếu rạp</StyledBreadcrumblink>,
+        <span key={key++} style={{color:pageStyles.activeColor}}>Avatar</span>,
     ]
     return (
         <>
