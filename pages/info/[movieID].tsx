@@ -54,9 +54,7 @@ const DetailPage: NextPageWithLayout = () => {
                     <StyledPlayIcon />
                 </WatchWrapper>
                 <CommonInfoWrapper>
-                    <AvatarWrapper>
-                        <Avatar src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80' alt="123" width={50} height={70} />
-                    </AvatarWrapper>
+                    <Avatar/>
                     <InfoWrapper>
                         <Title>Hury Animate Blue strack new moive (2018)</Title>
                         <InfoItem>
@@ -92,12 +90,13 @@ const DetailPage: NextPageWithLayout = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum hic tenetur eos modi, et autem quia voluptas a qui iure perferendis quo ea officia ut neque dolores deleniti architecto at.
                     </StoryContent>
                 </StoryWrapper>
-                <CommentWrapper>
+                {/* <CommentWrapper>
                     <Comments />
-                </CommentWrapper>
+                </CommentWrapper> */}
 
             </Container>
             <MovieCarousel {...iMovieCarousel} />
+            <Title>Phim liên quan</Title>
         </>
     );
 }
@@ -147,8 +146,10 @@ width: 75%;
 margin-top: 3rem;
 padding-left: 2rem;
 `
-const AvatarWrapper = styled.div`
-background-color: red;
+const Avatar = styled.div`
+background-image: url(https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg);
+background-size: cover;
+background-repeat: no-repeat;
 
 width: 20rem;
 height: 30rem;
@@ -157,10 +158,6 @@ position: relative;
     top: -12rem;
     border-radius: 1rem;
 `
-const Avatar = styled(Image)`
-
-`
-
 const StyledPlayIcon = styled(PlayCircleOutlined)`
     font-size: 4rem;
 `
@@ -168,6 +165,9 @@ const StyledPlayIcon = styled(PlayCircleOutlined)`
 const WatchWrapper = styled.div`
     height: 35rem;
     position: relative;
+    background-image: url(https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-poster.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
     display: flex;
     justify-content: center;
