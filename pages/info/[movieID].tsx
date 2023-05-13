@@ -3,19 +3,58 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Container from "@/components/Container";
 import MovieCarousel from "@/components/MovieCarousel";
 import StyledBreadcrumblink from "@/components/StyledBreadcrumbLink";
+import VideoJS from "@/components/Videojs/Videojs";
 import BaseLayout from "@/layouts/BaseLayout";
 import { pagesInfo } from "@/pagesInfo";
 import { pageStyles } from "@/styles/styles.config";
-import { FacebookOutlined, HomeOutlined, InstagramOutlined, PlayCircleOutlined, TwitterOutlined } from "@ant-design/icons";
+import { HomeOutlined } from "@ant-design/icons";
 import { Rate, Space } from "antd";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ReactElement } from "react";
+import { ReactElement, useRef } from "react";
 import styled from "styled-components";
 import { NextPageWithLayout } from "../_app";
-
+import { PlayIcon } from "@/icons";
 const DetailPage: NextPageWithLayout = () => {
+    const playerRef = useRef(null);
+    const videoJsOptions = {
+        autoplay: false,
+        controls: true,
+        responsive: true,
+        fluid: true,
+        sources: [{
+            src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+            type: 'video/mp4'
+        }],
+        poster: 'https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg',
+
+        plugins: {
+            hotkeys: {
+                volumeStep: 0.1,
+                fullscreenKey: function (event, player) {
+                    // override fullscreen to trigger when pressing the F key or Ctrl+Enter
+                    return ((event.which === 70) || (event.ctrlKey && event.which === 13));
+                },
+
+            },
+        },
+
+        playbackRates: [0.5, 1, 1.5, 2],
+    };
+
+    const handlePlayerReady = (player) => {
+        playerRef.current = player;
+
+        // You can handle player events here, for example:
+        player.on('waiting', () => {
+            videojs.log('player is waiting');
+        });
+
+        player.on('dispose', () => {
+            videojs.log('player will dispose');
+        });
+    };
     const iMovieCarousel: IMovieCarousel = {
         centerMode: false,
         slidesToShow: 4,
@@ -25,7 +64,7 @@ const DetailPage: NextPageWithLayout = () => {
         }
     }
     const router = useRouter();
-    const {movieID} = router.query;
+    const { movieID } = router.query;
     var key = 1;
     const breadcrumbItems: Array<React.ReactNode> = [
         <StyledBreadcrumblink key={key++} href='/'>
@@ -35,7 +74,7 @@ const DetailPage: NextPageWithLayout = () => {
             </Space>
         </StyledBreadcrumblink>,
         <StyledBreadcrumblink key={key++} href='/'>phim chiếu rạp</StyledBreadcrumblink>,
-        <span key={key++} style={{color:pageStyles.activeColor}}>Avatar</span>,
+        <span key={key++} style={{ color: pageStyles.activeColor }}>Avatar</span>,
     ]
     return (
         <>
@@ -48,50 +87,31 @@ const DetailPage: NextPageWithLayout = () => {
             <Breadcrumb items={breadcrumbItems} />
             <Container>
                 <WatchWrapper>
-                    <StyledRate disabled defaultValue={2} />
-                    <StyledPlayIcon />
+                    <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
                 </WatchWrapper>
                 <CommonInfoWrapper>
-                    <Avatar/>
+                    <AvatarWrapper>
+                        <img src="https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg" alt="" />
+                    </AvatarWrapper>
                     <InfoWrapper>
-                        <Title>Hury Animate Blue strack new moive (2018)</Title>
-                        <InfoItem>
-                            <Rate disabled defaultValue={2} />
-                        </InfoItem>
-                        <InfoItem><b>Cateogry : </b><span>Enligsh Animaion movie</span></InfoItem>
-                        <InfoItem><b>Actor: </b><span>Prit Kapel, Justin orjun</span></InfoItem>
-                        <InfoItem><b>Genre: </b><span>Drama, Action</span></InfoItem>
-                        <InfoItem><b>Release: </b><span>Jun, 02, 2018</span></InfoItem>
-                        <InfoItem><b>Langualge: </b><span>English</span></InfoItem>
-                        <Shared>
-                            <SharedTile>Share:</SharedTile>
-                            <Space>
-                                <SharedItem href='/'><FacebookOutlined style={{ fontSize: '20px', color: pageStyles.activeColor }} /></SharedItem>
-                                <SharedItem href='/'><TwitterOutlined style={{ fontSize: '20px', color: '#0abaef' }} /></SharedItem>
-                                <SharedItem href='/'><InstagramOutlined style={{ fontSize: '20px', color: '#b60fd5' }} /></SharedItem>
-                                <SharedItem href='/'><FacebookOutlined style={{ fontSize: '20px', color: '#dbac29' }} /></SharedItem>
-                            </Space>
-
-                        </Shared>
+                        <Title>Avatar (2009)</Title>
+                        <label>Intro</label>
+                        <p>Bởi khủng hoảng năng lượng, một số tập đoàn năng lượng quyết định đầu tư …xâm lược một hành tinh khác để khai thác những khoáng sản quý giá có thể giải quyết vấn đề khủng hoảng. Jake, một cựu binh thủy quân lục chiến được giao nhiệm vụ thâm nhập vào cộng đồng dân cư bản địa để thu thập tin tức thuận lợi cho kế hoạch tấn công. Tuy nhiên, những ngày sống tại Pandora đã thay đổi nhận thức của Jake về thế giới. Anh muốn cứu Pantera khỏi những kẻ tham lam, tránh vận mệnh u ám của Trái Đất.</p>
+                        {/* <Space> */}
+                        <div>
+                            <p><b>Thể loại: </b><span>hành động, phiêu lưu</span></p>
+                            <p><b>Chất Lượng: </b><span>HD</span></p>
+                            <p><b>Thời Lượng: </b><span>120 phút</span></p>
+                            <p><b>Năm Phát Hành: </b><span>2022</span></p>
+                            <p><b>Quốc Gia: </b><span>Âu mỹ</span></p>
+                            <p><span>104.3k</span> Lượt Xem</p>
+                            <p><PlayIcon></PlayIcon> Xem Trailer</p>
+                        </div>
+                              
+                        {/* </Space> */}
+                      
                     </InfoWrapper>
                 </CommonInfoWrapper>
-                <StoryWrapper>
-                    <StoryTitle>Movie Story</StoryTitle>
-                    <StoryContent>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel sed eum culpa ut repellat velit quibusdam facere ratione nam repellendus rem nobis soluta, eaque quisquam ipsa atque. Saepe, nostrum esse.
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos id ducimus similique ipsam dicta, et soluta enim? Ab amet beatae voluptatem aspernatur et nisi dicta alias, libero quaerat dolores. Blanditiis.
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde aliquam doloremque voluptatibus vitae adipisci harum enim eveniet quisquam necessitatibus voluptates! Architecto sed magni alias necessitatibus optio saepe odio rem beatae!
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est ad nostrum illo, nam libero quo odio magnam labore aut assumenda inventore sit temporibus delectus? Perspiciatis eveniet amet dolore atque ipsa?
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero culpa corporis quae illo ipsum aperiam dicta, facilis sit mollitia quaerat fugit molestias velit harum! Reprehenderit voluptate excepturi et odit veritatis?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas fugiat facilis omnis reprehenderit, dicta quod id recusandae repellat officiis magni enim ut et cumque ipsam alias laudantium aspernatur obcaecati praesentium.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa optio facere exercitationem molestias voluptatum tempora mollitia debitis eos, voluptatem, incidunt delectus doloribus! Quasi ab animi beatae, facilis esse aliquam alias.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum hic tenetur eos modi, et autem quia voluptas a qui iure perferendis quo ea officia ut neque dolores deleniti architecto at.
-                    </StoryContent>
-                </StoryWrapper>
-                {/* <CommentWrapper>
-                    <Comments />
-                </CommentWrapper> */}
-
             </Container>
             <MovieCarousel {...iMovieCarousel} />
             <Title>Phim liên quan</Title>
@@ -99,87 +119,59 @@ const DetailPage: NextPageWithLayout = () => {
     );
 }
 
-const CommentWrapper = styled.div`
-// margin-left: 4rem;
-//     background-color: ${pageStyles.textColor2};
-//     padding-left: 4rem;
-
-    
-`;
-
-const StoryTitle = styled.p`
-    font-size: 2rem;
-`
-
-const StoryContent = styled.p`
-    font-size: 1rem;
-`
-
-const StoryWrapper = styled.div`
-    margin-left: 4rem;
-`
-
-const InfoItem = styled.div`
-    margin-bottom: 1rem;
-`
-
-const SharedTile = styled.span`
-        font-size: 1rem;
-        text-transform: uppercase;
-        color: ${pageStyles.activeColor};
-        margin-right: 1rem;
-`
-
-const SharedItem = styled(Link)`
-    
-
-`
-
-const Shared = styled.div`
-
-`
-
 const InfoWrapper = styled.div`
-    width: 75%;
-    margin-top: 3rem;
-    padding-left: 2rem;
+    width: 82%;
+
+    div {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        
+        p {
+            width: 30%;
+
+            span {
+                color: ${pageStyles.activeColor};
+            }
+        }
+    }
 `
-const Avatar = styled.div`
-    background-image: url(https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    width: 20rem;
-    height: 30rem;
-
-    position: relative;
-    top: -12rem;
+const AvatarWrapper = styled.div`
     border-radius: 1rem;
+    width: 15%;
+    overflow: hidden;
+    
+    img {
+        width : 100%;
+    }
 `
-const StyledPlayIcon = styled(PlayCircleOutlined)`
-    font-size: 4rem;
-`
-
 const WatchWrapper = styled.div`
-    height: 35rem;
-    position: relative;
-    background-image: url(https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-poster.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: ${pageStyles.activeColor};
+    min-height: 35rem;
 `
-
 
 const CommonInfoWrapper = styled.div`
-    display: flex;
-    margin-left: 4rem;
+    margin-top: 2rem;
+    background-color: ${pageStyles.textColor2};
+    border-radius: 1rem;
 
-        justify-content: space-between;
-        height: 22rem;
+    display: flex;
+    padding: 1rem;
+
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    label {
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    p {
+        line-height: 1.5rem;
+        font-size: 17px;
+        font-weight: 300;
+    }
 `
 
 const Title = styled.h3`
@@ -187,13 +179,6 @@ const Title = styled.h3`
     font-size: 2rem;
 
 `
-
-const StyledRate = styled(Rate)`
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-`
-
 DetailPage.getLayout = function getLayout(page: ReactElement) {
     return (
         <BaseLayout>

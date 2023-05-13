@@ -147,7 +147,7 @@ const Menu = () => {
         },
         {
             item: {
-                title: 'phim chiếu rạp',
+                title: 'phim chiếu rạp 🔥🔥🔥',
                 link: '/phim-chieu-rap',
                 parentLink: '/list',
             }
