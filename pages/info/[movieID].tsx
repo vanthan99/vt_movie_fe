@@ -2,21 +2,22 @@ import { IMovieCarousel } from "@/commons/common";
 import Breadcrumb from "@/components/Breadcrumb";
 import Container from "@/components/Container";
 import MovieCarousel from "@/components/MovieCarousel";
+import ServerList from "@/components/ServerList";
 import StyledBreadcrumblink from "@/components/StyledBreadcrumbLink";
 import VideoJS from "@/components/Videojs/Videojs";
+import { PlayIcon } from "@/icons";
 import BaseLayout from "@/layouts/BaseLayout";
 import { pagesInfo } from "@/pagesInfo";
 import { pageStyles } from "@/styles/styles.config";
 import { HomeOutlined } from "@ant-design/icons";
-import { Rate, Space } from "antd";
+import { Space } from "antd";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { ReactElement, useRef } from "react";
 import styled from "styled-components";
 import { NextPageWithLayout } from "../_app";
-import { PlayIcon } from "@/icons";
-import ServerList from "@/components/ServerList";
+import videojs from 'video.js';
+
 const DetailPage: NextPageWithLayout = () => {
     const playerRef = useRef(null);
     const videoJsOptions = {
@@ -33,7 +34,7 @@ const DetailPage: NextPageWithLayout = () => {
         plugins: {
             hotkeys: {
                 volumeStep: 0.1,
-                fullscreenKey: function (event, player) {
+                fullscreenKey: function (event:any, player:any) {
                     // override fullscreen to trigger when pressing the F key or Ctrl+Enter
                     return ((event.which === 70) || (event.ctrlKey && event.which === 13));
                 },
@@ -44,7 +45,7 @@ const DetailPage: NextPageWithLayout = () => {
         playbackRates: [0.5, 1, 1.5, 2],
     };
 
-    const handlePlayerReady = (player) => {
+    const handlePlayerReady = (player:any) => {
         playerRef.current = player;
 
         // You can handle player events here, for example:
