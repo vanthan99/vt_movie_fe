@@ -16,6 +16,7 @@ import { ReactElement, useRef } from "react";
 import styled from "styled-components";
 import { NextPageWithLayout } from "../_app";
 import { PlayIcon } from "@/icons";
+import ServerList from "@/components/ServerList";
 const DetailPage: NextPageWithLayout = () => {
     const playerRef = useRef(null);
     const videoJsOptions = {
@@ -89,6 +90,7 @@ const DetailPage: NextPageWithLayout = () => {
                 <WatchWrapper>
                     <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
                 </WatchWrapper>
+                <ServerList />
                 <CommonInfoWrapper>
                     <AvatarWrapper>
                         <img src="https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg" alt="" />
