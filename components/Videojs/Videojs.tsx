@@ -4,8 +4,8 @@ import 'video.js/dist/video-js.css';
 import "videojs-hotkeys";
 
 export const VideoJS = (props:any) => {
-  const videoRef = React.useRef(null);
-  const playerRef = React.useRef(null);
+  const videoRef = React.useRef<HTMLInputElement>(null);
+  const playerRef = React.useRef<HTMLInputElement>(null);
   const {options, onReady} = props;
 
   React.useEffect(() => {
