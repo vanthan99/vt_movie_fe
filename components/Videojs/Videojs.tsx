@@ -20,7 +20,7 @@ export const VideoJS = (props:any) => {
 
       const player = playerRef.current = videojs(videoElement, options, () => {
         videojs.log('player is ready');
-        onReady && onReady(player);
+        onReady && onReady(player); 
       });
 
     // You could update an existing player in the `else` block here
