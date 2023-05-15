@@ -90,7 +90,6 @@ const MovieCarousel: React.FC<IMovieCarousel> = (iMovieCarousel: IMovieCarousel)
                     <Item>
                         <ProductGridItem link='/info/abc123' />
                     </Item>
-                
                 </Carousel>
             </Container>
         </MovieCarouselWrapper>

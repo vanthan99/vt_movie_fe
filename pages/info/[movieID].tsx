@@ -17,6 +17,7 @@ import { ReactElement, useRef } from "react";
 import styled from "styled-components";
 import { NextPageWithLayout } from "../_app";
 import videojs from 'video.js';
+import MovieCarouselV2 from "@/components/MovieCarouselV2";
 
 const DetailPage: NextPageWithLayout = () => {
     const playerRef = useRef(null);
@@ -117,7 +118,10 @@ const DetailPage: NextPageWithLayout = () => {
                 </CommonInfoWrapper>
             </Container>
             <MovieCarousel {...iMovieCarousel} />
-            <Title>Phim liên quan</Title>
+            <Container>
+                <MovieCarouselV2 title="PHIM LIÊN QUAN" />
+                <MovieCarouselV2 title="PHIM ĐỀ CỬ" />
+            </Container>
         </>
     );
 }
@@ -180,7 +184,6 @@ const CommonInfoWrapper = styled.div`
 const Title = styled.h3`
     color: green;
     font-size: 2rem;
-
 `
 DetailPage.getLayout = function getLayout(page: ReactElement) {
     return (
