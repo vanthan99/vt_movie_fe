@@ -1,28 +1,52 @@
 import { pageStyles } from "@/styles/styles.config";
-import { MenuProps, Space } from "antd";
-import React, { useEffect, useState } from "react";
+import { Space } from "antd";
+import React, { useState } from "react";
 import styled from "styled-components";
 
+export type ItemType = {
+    label: string,
+    itemCurrentKey: string,
+    itemKey: string,
+    itemOnClick: any
+}
+
+const Item = ({ label, itemCurrentKey, itemKey, itemOnClick }: ItemType) => {
+    return <ServerItem onClick={() => itemOnClick(itemKey)} style={itemCurrentKey === itemKey ? { backgroundColor: pageStyles.activeColor } : {}}>{label}</ServerItem>
+}
+
 const ServerList: React.FC = () => {
-    const [current, setCurrent] = useState('mail');
+    const [currentKey, setCurrentKey] = useState('server1');
 
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
+    const onClick = (e: string) => {
+        setCurrentKey(e);
+    }
 
-useEffect(() => {
-    console.log("test",current)
-},[])
+    const data: Array<ItemType> = [
+        {
+            label: 'Server 1',
+            itemCurrentKey: currentKey,
+            itemKey: 'server1',
+            itemOnClick: onClick,
+        },
+        {
+            label: 'Server 2',
+            itemCurrentKey: currentKey,
+            itemKey: 'server2',
+            itemOnClick: onClick,
+        },
+        {
+            label: 'Server 3',
+            itemCurrentKey: currentKey,
+            itemKey: 'server3',
+            itemOnClick: onClick,
+        }
+    ]
     return (
         <ServerListWrapper>
             <h3>Server: </h3>
             <List>
                 <Space>
-                    <ServerItem onClick={() => {setCurrent('1')}}>Server 1</ServerItem>
-                    <ServerItem onClick={() => {setCurrent('2')}}>Server 2</ServerItem>
-                    <ServerItem onClick={() => {setCurrent('3')}}>Server 3</ServerItem>
-                    <ServerItem onClick={() => {setCurrent('4')}}>Server 4</ServerItem>
+                    {data.map((item, index) => <Item {...item} key={index} />)}
                 </Space>
             </List>
         </ServerListWrapper>
@@ -47,8 +71,12 @@ const ServerItem = styled.div`
     font-size: 17px;
     padding: 7px 6px;
     border-radius: 8px;
-    background-color: ${pageStyles.activeColor};
     cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+        background-color: ${pageStyles.activeColor};
+    }
 `
 
 const List = styled.div`
