@@ -27,10 +27,10 @@ const DetailPage: NextPageWithLayout = () => {
         responsive: true,
         fluid: true,
         sources: [{
-            src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+            src: 'https://firebasestorage.googleapis.com/v0/b/vt-movie.appspot.com/o/movies%2FAvatar%202%20D%C3%B2ng%20Ch%E1%BA%A3y%20C%E1%BB%A7a%20N%C6%B0%E1%BB%9Bc%20-%20Phim%20M%E1%BB%9Bi%202023%20-%20Phim%20Chi%E1%BA%BFu%20R%E1%BA%A1p.mp4?alt=media&token=0585da40-8b18-4454-be3c-289e1096ed1a',
             type: 'video/mp4'
         }],
-        poster: 'https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg',
+        // poster: 'https://xemphim123.com/storage/images/ve-binh-dai-ngan-ha-3/ve-binh-dai-ngan-ha-3-thumb.jpg',
 
         plugins: {
             hotkeys: {
